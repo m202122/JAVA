@@ -8,3 +8,4 @@ Os arquivos StdOut.java e StdIn.java são necessários para funcionamento dos al
 Algoritmos do livro: Algorithms - 4ª edição - Robert Sedgewick | Kevin Wayne
 
   - Geração de números aleatórios
+  - Exemplos JDBC (conexão com banco MySQL)
