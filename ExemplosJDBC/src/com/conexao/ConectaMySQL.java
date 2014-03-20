@@ -13,9 +13,9 @@ public class ConectaMySQL {
 		
 		try {
 			// Registrando a classe jdbc no sistema em tempo de execução
-			String url = "jdbc:mysql://localhost/agenda"; // agenda corresponde ao schema agenda presenta dentro do mysql 
-			String usuario = "root";
-			String senha = "admin";
+			String url = "jdbc:mysql://localhost/agenda"; // agenda corresponde ao schema agenda presente dentro do MySql 
+			String usuario = "root"; // Usuário do MySQL
+			String senha = "admin"; // Senha do usuário do MySQL
 			conexao = DriverManager.getConnection(url, usuario, senha);
 			System.out.println("Conectou!");
 		} catch(SQLException e) {
