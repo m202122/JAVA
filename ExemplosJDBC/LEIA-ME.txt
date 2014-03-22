@@ -1,0 +1,3 @@
+- conexao/ConectaMySQL.java - Exemplo de conexão com banco de dados MySQL;
+- crudjdbc/Contato.java - Classe que representa a tabela 'contato' do banco de dados como um objeto, mapeando todas as colunas da tabela nas respectivas propriedades;
+- crudjbdc/ContatoCrudJDBC.java - Classe responsável por fazer as operações de SQL(insert, delete, update, select) na tabela contato. Não foi usado o conceito do padrão MVC de separação de responsabilidades para realizar as operações.
