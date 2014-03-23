@@ -1,3 +1,6 @@
+JDBC
+====
+
 - banco.sql - Tabela do banco de dados usada como exemplo
 - lib/mysql-connector-java-5.1.7-bin.jar - Driver necessário para executar os arquivos;
 - conexao/ConectaMySQL.java - Exemplo de conexão com banco de dados MySQL;
