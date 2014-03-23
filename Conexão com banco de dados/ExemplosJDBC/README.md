@@ -1,5 +1,6 @@
 JDBC
 ====
+JDBC é usado para realizar operações e comunicação com um banco de dados.
 
 - banco.sql - Tabela do banco de dados usada como exemplo
 - lib/mysql-connector-java-5.1.7-bin.jar - Driver necessário para executar os arquivos;
