@@ -65,3 +65,43 @@ displayArray(intArrayCopy, "intArrayCopy");
 
 // Exemplo 4
 int local = Arrays.binarySearch(intArray, 5); // pesquisa em intArray o valor 5
+
+// ------------- Lista de argumentos de um método com tamanho variável:
+
+ 	// cria métodos que recebem um número não especificado de elementos. 
+	// Como fazer? Declaração: um tipo seguido de reticências (...) na lista de parâmetros. Essa utilização
+	// só pode ocorrer uma única vez em uma lista de parâmetros, e as reticências, juntamente com seu tipo,
+	// devem ser colocadas no fim da lista de parâmetros.
+
+	// OBS: o java trata a lista de argumentos de comprimento variável como um array cujos elementos são
+	// todos do mesmo tipo. Oberve isso no exemplo abaixo, no laço for.
+
+// Exemplo:
+
+public static double media(double... numeros)
+{
+	double total = 0;
+	for(double d : numeros)
+		total += d;
+	return total / numeros.length;
+}
+
+/*---------------------------------------------------------------------------------------------------------*/
+// ------------- CLASSE ArrayList (altera dinamicamente seu tamanho em tempo de execução, vantagem sobre array)
+
+// Declaração:
+
+ArrayList<T> list; // Onde T corresponde ao tipo de elementos que o ArrayList terá.
+
+ArrayList<String> listStrings;
+listStrings = new ArrayList<String>();
+
+// adicionando elemento:
+listStrings.add("red"); // acrescenta a string red ao arraylist
+listStrings.add(0, "yellow"); // acrescenta a string yellow na posicção 0 do ArrayList
+
+// remover elemento:
+listStrings.remove("yellow"); // remove o primeiro yellow do arraylist
+listStrings.remove(1); // remove o elemento da posição 1 do arraylist
+
+// Outros métodos: clear, contains, get, indexOf, size, trimToSize, ...
