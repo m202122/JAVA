@@ -28,15 +28,15 @@ send a note to the authors so they can mail you a copy immediately.
 <!DOCTYPE hibernate-mapping PUBLIC
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.livro.capitulo3.crudxml">
-	<class name="Contato" table="contato">
-		<id name="codigo" column="codigo">
-			<generator class="increment"/>
+<hibernate-mapping package="com.livro.capitulo3.crudxml"> <!-- Package da classe Contato.java que estamos mapeando -->
+	<class name="Contato" table="contato"> <!-- name="Contato", define a classe que estamos mapeando | table="contato", define qual tabela do banco de dados a classe Contato.java se refere. -->
+		<id name="codigo" column="codigo"> <!-- id name="codigo", identificador(chave-primária) da classe Contato.java no banco de dados, ou seja, atributo codigo da classe Contato.java é mapeado com a coluna código que é chave-primária da tabela contato no banco de dados. -->
+			<generator class="increment"/> <!-- Incrementa 1 ao valor de chave-primária -->
 		</id>
-		<property name="nome"/>
+		<property name="nome"/> <!-- column="nome" foi omitido já que ambos os valores são iguais. Omitir isso pode significar que a classe Contato.java possui um atributo "nome", e igualmente, a tabela contato do banco de dados também possui uma coluna definida como "nome" -->
 		<property name="telefone"/>
 		<property name="email"/>
-		<property name="dataCadastro" type="date" column="dt_cad"/>
+		<property name="dataCadastro" type="date" column="dt_cad"/>  <!-- type="date" não é necessário. Geralmente Hibernate identifica o tipo de dado. Atributo "dataCadastro" da classe Contato.java será mapeada com a coluna de nome "dt_cad" da tabela contato do banco de dados.-->
 		<property name="observacao" type="string" column="obs"/>
 	</class>
 </hibernate-mapping>

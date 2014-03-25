@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Configuração da conexão com o banco MySQL e dialeto -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property> 
+				<!-- dialect = sempre terá como valor uma classe Dialect. Essa classe ensina o Hibernate a conversar com o banco de dados. 
+				     Todo banco de dados precisa ter uma classe Dialect para que o Hibernate consiga conversar com ele, além, do driver JDBC --> 
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/agenda</property> <!-- agenda = nome do database --> 
+		<property name="connection.username">root</property> <!-- root = usuário do MySQL --> 
+		<property name="connection.password">admin</property> <!-- admin = senha do usuário MySQL --> 
+
+		<!-- Usando as configurações do C3PO para pool de conexões -->
+		<property name="c3po.min_size">5</property> <!-- Número mínimo de conexões que o C3PO mantém preparadas todo tempo. -->
+		<property name="c3po.max_size">20</property> <!-- Número máximo de conexões no pool. Exceção lançada caso esse limite seja ultrapassado. -->
+		<property name="c3po.timeout">300</property> <!-- Tempo limite para remoção de conexão inativa no pool. Aqui, são 300 segundos. -->
+		<property name="c3po.max_statements">50</property> 
+				<!-- Máximo de 50 declarações preparadas irão para o cache. Uso de cacheamento para melhorar desempenho do Hibernate. -->
+		<property name="c3po.idle_test_period">3000</property> <!-- Tempo de inatividade em segundos antes que uma conexão seja automaticamente validada. -->
+		
+		<!-- Configurações de debug -->
+		<!--<property name="show_sql">true</property> --> <!-- Habilita que todas as saídas sql realizadas apareçam no console. -->
+		<!--<property name="format_sql">true</property> --> <!-- Imprime o comando SQL executado de maneira legível tanto no console como no log. -->
+		<!--<property name="generate_statistics">true</property> --> <!-- Hibernate coletará informações estatísticas para posterior ajuste de desempenho. -->
+		<!--<property name="use_sql_comments">true</property> --> <!-- Hibernate irá gerar comentários junto ao SQL para facilitar a depuração. -->
+				
+		<!-- Mapeando classes -->
+		<mapping resource="com/livro/capitulo3/crudxml/Contato.hbm.xml"/>
+		<mapping class="com.livro.capitulo3.crudannotations.ContatoAnnotations"/>
+	</session-factory>
+</hibernate-configuration>

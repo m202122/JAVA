@@ -44,10 +44,15 @@ public class ContatoCrudXML {
 		Transaction transacao = null;
 
 		try {
-			sessao = HibernateUtil.getSessionFactory().openSession();
+			sessao = HibernateUtil.getSessionFactory().openSession(); 
+				// Uso da classe HibernateUtil. A partir dela recuperamos uma instância de SessionFactory
+				// para usarmos o método openSession que abre uma sessão com o banco.
 			transacao = sessao.beginTransaction();
 			sessao.save(contato);
+				// Método save da sessão, é o método pelo qual o Hibernate realizará a operação de insert
+				// no banco. Objeto contato a ser adicionado é passado como parâmetro.
 			transacao.commit();
+				// Método commit gera a instrução de commit no banco, confirmando a transação.
 		} catch (HibernateException e) {
 			System.out.println("Não foi possível inserir o contato. Erro: " + e.getMessage());
 		} finally {
@@ -67,6 +72,8 @@ public class ContatoCrudXML {
 			sessao = HibernateUtil.getSessionFactory().openSession();
 			transacao = sessao.beginTransaction();
 			sessao.update(contato);
+				// Método update da sessão, é o método pelo qual o Hibernate realizará a operação de update
+				// no banco.
 			transacao.commit();
 		} catch (HibernateException e) {
 			System.out.println("Não foi possível alterar o contato. Erro: " + e.getMessage());
@@ -87,6 +94,8 @@ public class ContatoCrudXML {
 			sessao = HibernateUtil.getSessionFactory().openSession();
 			transacao = sessao.beginTransaction();
 			sessao.delete(contato);
+				// Método delete da sessão, é o método pelo qual o Hibernate realizará a operação de delete
+				// no banco.
 			transacao.commit();
 		} catch (HibernateException e) {
 			System.out.println("Não foi possível excluir o contato. Erro: " + e.getMessage());
@@ -110,6 +119,11 @@ public class ContatoCrudXML {
 			transacao = sessao.beginTransaction();
 			consulta = sessao.createQuery("from Contato");
 			resultado = consulta.list();
+				// Trabalhamos com uma classe nova chamada Query, responsável por montar consultas no Hibernate
+				// usando o padrão HQL. Ao passarmos a instrução SQL para o método, não usamos a tradicional 
+				// instrução 'select * from contato', mas from Contato. Isso porque estamos lidando agora com
+				// objetos, e não + linhas de resultado de uma consulta. Contato, de 'from Contato', se refere
+				// à nossa classe conforme mapeada no XML. O método list() retornará uma lista de objetos consultados.
 			transacao.commit();
 			return resultado;
 		} catch (HibernateException e) {
@@ -134,8 +148,12 @@ public class ContatoCrudXML {
 			sessao = HibernateUtil.getSessionFactory().openSession();
 			transacao = sessao.beginTransaction();
 			consulta = sessao.createQuery("from Contato where codigo = :parametro");
+				// Montamos consulta parametrizada no exemplo com base na chave primária da tabela.
 			consulta.setInteger("parametro", valor);
+				// setInteger possui 2 parâmetros: primeiro é o nome do parâmetro, nomeado propositalmente
+				// de parâmetro, enquanto o segundo é o valor a ser pesquisado.
 			contato = (Contato) consulta.uniqueResult();
+				// uniqueResult() é a maneira de o objeto Query retornar um único objeto.
 			transacao.commit();
 			return contato;
 		} catch (HibernateException e) {
