@@ -1,4 +1,5 @@
-====================== HIBERNATE & XML ======================
+HIBERNATE & XML
+===============
 
 Assim como o JDBC, Hibernate é usado para realizar operações e comunicação com um banco de dados, porém, de maneira mais padronizada.
 
