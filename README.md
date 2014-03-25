@@ -1,6 +1,8 @@
 JAVA
 ====
-  - Exemplos JDBC (conexão com banco MySQL, deleção, inserção, update, ...)
+  - Conexão com banco MySQL ( deleção, inserção, update, ...)
+      - Exemplo usando JDBC;
+      - Exemplo com Hibernate
 
   - Geração de números aleatórios
 
