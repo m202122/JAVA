@@ -7,7 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 
-@ManagedBean(name="usuarioBean")
+@ManagedBean(name="usuarioBean") // ManagedBean tem como função declarar a classe como uma ManagedBean, para que possa ser acessível nas páginas JSF
+								 // Ela tem um atributo interno 'name' que declara o nome dessa ManagedBean, porém isso não é obrigatório.
 @RequestScoped
 public class UsuarioBean {
     
@@ -25,17 +26,17 @@ public class UsuarioBean {
         this.parametros = parametros;
     }
            
-    public String novo() {
+    public String novo() { // Método usado em index.xhtml para chamar a página usuario.xhtml para criação de um novo usuário
         return "usuario";
     }
     
     public String salvar() {
         FacesContext context = FacesContext.getCurrentInstance();
-        if(!this.senha.equalsIgnoreCase(this.confirmaSenha)) {
+        if(!this.senha.equalsIgnoreCase(this.confirmaSenha)) { // Se a senha de confirmação não bate, permanece na página de usuario.xhtml
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Senha confirmada incorretamente",""));
             return "usuario";
         }
-        // salva usuário
+        // Salva usuário. Abre a página mostraUsuario.xhtml com as informações do usuário cadastrado.
         return "mostraUsuario";
     }
     
