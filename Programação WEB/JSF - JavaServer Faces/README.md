@@ -10,4 +10,5 @@ JAVASERVER FACES - JSF
 	- OBS: Nos arquivos .xhtml:
 		- xlmns(XML Name Space): indica a biblioteca que estará disponível no arquivo.
 		- A letra após o "xmlns:" é o apelido da biblioteca em questão para o arquivo XHTML. Exemplo: xmlns:f="http://xmlns.jcp.org/jsf/core" , onde f é o apelido da biblioteca "http://xmlns.jcp.org/jsf/core". Assim, para visualizar tags dessa biblioteca basta digitar <f:
-FinanceiroJSF foi desenvolvido usando o Netbeans IDE, com o GlasshFish como servidor.
+
+- FinanceiroJSF foi desenvolvido usando o Netbeans IDE, com o GlasshFish como servidor.
